@@ -46,6 +46,13 @@ public class ControllerSignUp {
 
     @FXML
     void initialize() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        registrationButton.setOnAction(event -> {
+            dbHandler.signUpUsers(nameField.getText(), surnameField.getText(), privateCodeField.getText(),
+                    groupField.getText(), loginFieldRegistration.getText(), passwordFieldRegistration.getText());
+        } );
+
         returnToAuthorization.setOnAction(event -> {
             returnToAuthorization.getScene().getWindow().hide();
 
